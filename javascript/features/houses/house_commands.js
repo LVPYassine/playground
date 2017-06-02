@@ -222,6 +222,10 @@ class HouseCommands {
     // from, optionally |filter|ed, after which they get a list of houses owned by the subject.
     // Players using this command will get their own dialog immediately.
     async onHouseGotoCommand(player, filter) {
+        
+        if(PlayerState(playerid)->currentState() == PLAYER_STATE_WASTED)
+            return player.sendMessage(Message.WASTED_MESSAGE);
+            
         if (!player.isRegistered()) {
             player.sendMessage(Message.HOUSE_GOTO_UNREGISTERED);
             return;

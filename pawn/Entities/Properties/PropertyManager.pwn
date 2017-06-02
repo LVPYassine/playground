@@ -262,7 +262,7 @@ class PropertyManager {
 
             // Players with a normal bank account, or who disabled receiving earnings in their bank
             // account, will receive the earnings in cash.
-            if (PlayerSettings(playerId)->areEarningsToBankAccountDisabled()) {
+            if (PlayerSettings(playerId)->areEarningsToBankAccountDisabled() || !Player(playerId)->isRegistered()) {
                 GivePlayerMoney(playerId, payoutAmount[playerId]);
 
                 format(message, sizeof(message),
@@ -275,7 +275,7 @@ class PropertyManager {
 
             // Players with a Premier bank account will have the money deposited in their bank account
             // automatically, but again with a certain percentage of costs for the bank.
-            if (BankAccount(playerId)->availableBalance() >= payoutAmount[playerId]) {
+            if (BankAccount(playerId)->availableBalance() >= payoutAmount[playerId] && Player(playerId)->isRegistered()) {
                 // The player has sufficient balance available to receive this sum on their bank.
                 BankAccount(playerId)->setBalance(BankAccount(playerId)->balance() + payoutAmount[playerId]);
 

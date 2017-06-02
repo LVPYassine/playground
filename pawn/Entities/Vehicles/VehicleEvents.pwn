@@ -260,6 +260,11 @@ public OnVehicleDeath(vehicleid) {
 }
 
 public OnVehicleSpawn(vehicleid) {
+
+    new chk = DisarmVehicle(vehicleid, false, 1, 1);
+    if (chk == 1)
+        DisarmVehicle(vehicleid, false);
+
     if (Vehicle(vehicleid)->isValid() == false)
         return 0; // don't handle invalid vehicles.
 

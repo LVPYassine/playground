@@ -860,6 +860,8 @@ OnPlayerEnterMapZone(playerid,mapzid)
         veh = GetPlayerVehicleID(playerid);
         m_playerVehicleId[playerid] = veh;
 
+        SetVehicleToRespawn(veh); // save passanger from handofgod app after teleporting
+
         GetVehicleZAngle(veh,ang);
 
         SetVehiclePos(veh, Map_Zone[mapzid][Map_x], Map_Zone[mapzid][Map_y], Map_Zone[mapzid][Map_z]+3);
@@ -1128,6 +1130,9 @@ lvp_jump(playerid, params[]) {
         return 1;
     }
 
+    if (GetPlayerState(playerid) != PLAYER_STATE_SPAWNED)
+        return SendClientMessage(playerid, Color::Red,"* You cannot use commands when you are wasted!");
+
     if (!IsPlayerMinigameFree(playerid))
         return ShowBoxForPlayer(playerid, "You're currently signed up for a minigame, use /leave first!");
 
@@ -1136,6 +1141,9 @@ lvp_jump(playerid, params[]) {
 
     if (!IsPlayerInAnyVehicle(playerid))
         return ShowBoxForPlayer(playerid, "You have to be in a vehicle to teleport to a jumpzone!");
+
+    if (GetPlayerState(playerid) != PLAYER_STATE_DRIVER)
+        return ShowBoxForPlayer(playerid, "You can only teleport as driver to jump's maps");
 
     if (VehicleModel(GetVehicleModel(GetPlayerVehicleID(playerid)))->isNitroInjectionAvailable() == false)
         return ShowBoxForPlayer(playerid, "You cannot teleport to a jumpzone in this type of vehicle!");

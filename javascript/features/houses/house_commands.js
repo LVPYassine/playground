@@ -222,10 +222,12 @@ class HouseCommands {
     // from, optionally |filter|ed, after which they get a list of houses owned by the subject.
     // Players using this command will get their own dialog immediately.
     async onHouseGotoCommand(player, filter) {
-        
-        if(PlayerState(playerid)->currentState() == PLAYER_STATE_WASTED)
+        if(player.virtualWorld != 0)
+            return player.sendMessage(Message.HOUSE_BUY_NO_LOCATION);
+
+        if(player.state == Player.STATE_WASTED || player.state == Player.STATE_SPECTATING)
             return player.sendMessage(Message.WASTED_MESSAGE);
-            
+
         if (!player.isRegistered()) {
             player.sendMessage(Message.HOUSE_GOTO_UNREGISTERED);
             return;
@@ -683,7 +685,7 @@ class HouseCommands {
                 // Create the purchase menu that enables players to purchase a vehicle.
                 const purchaseMenu =
                     new Menu('Which vehicle do you want to buy?', ['Vehicle', 'Price']);
-                
+
                 for (const [modelId, modelName] of allowedVehicles) {
                     const price = 0;
 

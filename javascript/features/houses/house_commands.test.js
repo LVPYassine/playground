@@ -122,7 +122,7 @@ describe('HouseCommands', (it, beforeEach) => {
     it('should enable administrators to remove house locations', async(assert) => {
         const gunther = server.playerManager.getById(0 /* Gunther */);
         const locationCount = manager.locationCount;
-        
+
         assert.isAbove(locationCount, 0);
 
         gunther.identify();

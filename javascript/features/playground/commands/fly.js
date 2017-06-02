@@ -51,10 +51,16 @@ class FlyCommand extends Command {
             return;
         }
 
-        if (subject.interiorId != 0 && !player.isManagement()) {
+        if (player.interiorId != 0 && !player.isManagement()) {
             player.sendMessage(Message.COMMAND_ERROR, name + ' is currently in an interior, ' +
                                'but you can only fly outside!');
             return;
+        }
+
+        if(player.virtualWorld != 0 && !player.isManagement()){
+            player.sendMessage(Message.COMMAND_ERROR, name + ' is currently taking part of minigame or is not in main world, ' +
+                                'but you can only fly in main world');
+              return;
         }
 
         if (subject === player)

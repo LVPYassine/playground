@@ -264,7 +264,6 @@ class PlayerSpectateHandler {
             return 0;
 
         // Set the correct position and interior on respawn.
-        SetPlayerVirtualWorld(playerId, World::MainWorld);
         SetPlayerPos(playerId, m_playerPosition[playerId][0], m_playerPosition[playerId][1], m_playerPosition[playerId][2]);
         SetPlayerInterior(playerId, m_playerInterior[playerId]);
         SetPlayerVirtualWorld(playerId, m_playerVirtualWorld[playerId]);

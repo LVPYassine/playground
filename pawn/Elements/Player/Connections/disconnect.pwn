@@ -45,6 +45,9 @@ OnPlayerLVPDisconnect(playerId, reason) {
     MinigameLeave(playerId, true);
 #endif
 
+    if (DetonateVehicle[playerId] != -1)
+        DisarmVehicle(DetonateVehicle[playerId], false);
+
     ResetPlayerStats(playerId);
 
     return 1;

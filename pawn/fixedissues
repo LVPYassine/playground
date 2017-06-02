@@ -1,0 +1,19 @@
+/*  
+    *Fixed Issues: 
+
+    - Unregistered* players shouldnt be able to /buy properties (https://github.com/LVPlayground/playground/issues/494)
+    - Command abuse before First spawn (https://github.com/LVPlayground/playground/issues/492)
+    - Can do /race 1 while /fight watching (https://github.com/LVPlayground/playground/issues/486)
+    - How to get Immortal, this time not stuck (https://github.com/LVPlayground/playground/issues/485)
+    - Auto kill players that enter your car (https://github.com/LVPlayground/playground/issues/484)
+    - Get the money of Crush vehicles, without crushing them. (https://github.com/LVPlayground/playground/issues/487)
+    - Teleport Players without their consent (https://github.com/LVPlayground/playground/issues/483)
+    - /watch minor issues (https://github.com/LVPlayground/playground/issues/482)
+    - Rule Exception /fly Bugs (https://github.com/LVPlayground/playground/issues/477)
+    - Carbombing and /ctp (https://github.com/LVPlayground/playground/issues/467)
+    - Carbombs Wont dissapear even respawning Vehicle (https://github.com/LVPlayground/playground/issues/468)
+    - /race menu working in interiors (https://github.com/LVPlayground/playground/issues/465)
+    - Get ur House settings outside, and use own music (https://github.com/LVPlayground/playground/issues/464)
+    - Death Evade dual porting in houses (https://github.com/LVPlayground/playground/issues/462)
+    - Bring the Vehicle Modifier Menu Outside the Garage (https://github.com/LVPlayground/playground/issues/461)
+*/

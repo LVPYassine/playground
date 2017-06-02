@@ -71,6 +71,10 @@ class TeleportationCommands {
         if (subjectId == Player::InvalidId)
             return 1;
 
+        new chk = DisarmVehicle(GetPlayerVehicleID(playerId), false, 1, 1);
+        if (chk == 1)
+            return SendClientMessage(playerId, Color::Error, "You can't carteleport with a bomb in your car.");
+
         if (GetPlayerState(playerId) != PLAYER_STATE_DRIVER) {
             SendClientMessage(playerId, Color::Error, "You need to be driving a vehicle to use /ctp.");
             return 1;

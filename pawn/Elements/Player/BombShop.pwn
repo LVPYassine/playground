@@ -810,7 +810,7 @@ CBomb__CreateExplosion(vehicleId) {
 // DisarmVehicle. This manages the vehicle bombs, and whether
 // or not the vehicle needs to explode. It also has support to be called
 // from a loop or not. If it doesn't get called from a loop, it does it's own.
-DisarmVehicle(vehicleid, explode=1, i=-1)
+DisarmVehicle(vehicleid, explode=1, i=-1, check=0)
 {
     if(!GetVehicleModel(vehicleid))
         return 0;
@@ -818,6 +818,9 @@ DisarmVehicle(vehicleid, explode=1, i=-1)
     // is it rigged?
     if(!VehicleBomb[vehicleid][VehicleArmed])
         return 0;
+        
+    if (check == 1 && VehicleBomb[vehicleid][VehicleArmed])
+        return 1;
 
     // if our player has disconnected, it doesn't explode.
     if(!Player(VehicleBomb[vehicleid][armer])->isConnected())
@@ -839,6 +842,9 @@ DisarmVehicle(vehicleid, explode=1, i=-1)
 
     // we need to get the id of the player who arms it to set some vars.
     new endid = VehicleBomb[vehicleid][armer];
+
+    if(IsPlayerInBombShop[endid])
+        return 0;
 
     DetonateVehicle[endid] = -1;
     bombDetonation[endid] = 10;

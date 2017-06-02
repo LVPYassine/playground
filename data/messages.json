@@ -305,5 +305,7 @@
     "VEHICLE_UNLOCK_REDUNDANT": "@error No need to unlock your vehicle because it's not locked!",
     "VEHICLE_UNLOCK_UNREGISTERED": "@error Sorry, only registered players can unlock vehicles. Register now on www.sa-mp.nl!",
     "VEHICLE_UNLOCKED": "@success The %s has been unlocked!",
-    "VEHICLE_UNPINNED": "@success %s's %s has been unpinned from the streamer."
+    "VEHICLE_UNPINNED": "@success %s's %s has been unpinned from the streamer.",
+    
+    "WASTED_MESSAGE": "@error You cannot use commands when you are wasted!"
 }

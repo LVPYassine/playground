@@ -25,6 +25,7 @@ class RaceCommands {
     raceStart(player, id) {
         if(PlayerState(playerid)->currentState() == PLAYER_STATE_WASTED)
             return player.sendMessage(Message.WASTED_MESSAGE);
+            
         if (player.activity != Player.PLAYER_ACTIVITY_NONE)
             return player.sendMessage(Message.RACE_ERROR_ALREADY_ENGAGED);
 

@@ -23,6 +23,8 @@ class RaceCommands {
     // Either starts or joins the race with |id|, depending on whether an instance of the race is
     // currently accepting sign-ups. If not, a new sign-up round will be started.
     raceStart(player, id) {
+        if(PlayerState(playerid)->currentState() == PLAYER_STATE_WASTED)
+            return player.sendMessage(Message.WASTED_MESSAGE);
         if (player.activity != Player.PLAYER_ACTIVITY_NONE)
             return player.sendMessage(Message.RACE_ERROR_ALREADY_ENGAGED);
 
